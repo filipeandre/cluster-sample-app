@@ -25,10 +25,6 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 # Add app port
 ENV CLUSTER_SAMPLE_APP_PORT 8080
 
-#### Create dedicated user
-RUN useradd -ms /bin/bash user
-USER user
-
 #### Create app directory
 WORKDIR /usr/src/app
 
@@ -40,6 +36,10 @@ RUN npm install
 
 #### Bundle app source
 COPY . .
+
+#### Create dedicated user
+RUN useradd -ms /bin/bash user
+USER user
 
 #### Configure container
 EXPOSE 8080
