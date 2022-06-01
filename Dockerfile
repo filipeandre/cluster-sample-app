@@ -1,5 +1,5 @@
 ### Our base image
-FROM --platform=linux/amd64 amazonlinux:2.0.20211223.0
+FROM --platform=linux/amd64 public.ecr.aws/amazonlinux/amazonlinux:2022.0.20220504.1
 
 ### Update our image
 RUN yum update -y && yum clean all
