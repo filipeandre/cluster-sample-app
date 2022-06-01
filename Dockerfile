@@ -43,5 +43,5 @@ USER user
 
 #### Configure container
 EXPOSE 8080
-HEALTHCHECK CMD curl --fail http://localhost:8080/healthcheck || exit 1
+HEALTHCHECK --interval=30s --timeout=30s --retries=3 --start-period=1ms CMD curl --fail http://localhost:8080/healthcheck || exit 1
 CMD [ "node", "src/app.js" ]
